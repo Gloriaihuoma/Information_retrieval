@@ -8,18 +8,12 @@ import os
 # Load environment variables from .env file
 load_dotenv()
 
-# Get environment variables
-host = os.getenv("host")
-username = os.getenv("user_name")
-password = os.getenv("password")
-database = os.getenv("database")
-
 # Connect to MySQL database
 db_connection = pymysql.connect(
-    host=host,
-    user=username,
-    password=password,
-    database=database
+    host=os.getenv("host"),
+    user=os.getenv("user_name"),
+    password=os.getenv("password"),
+    database=os.getenv("database")
 )
 
 
