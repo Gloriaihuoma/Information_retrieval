@@ -3,6 +3,7 @@ import pymysql
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+import sqlite3
 
 
 # Load environment variables from .env file
@@ -15,8 +16,6 @@ db_connection = pymysql.connect(
     password=os.getenv("password"),
     database=os.getenv("database")
 )
-
-
 
 
 # Create a cursor
@@ -52,8 +51,21 @@ def stock_data():
             
         except pymysql.err.DataError:
             continue
-        
-stock_data()
-# Commit changes and close the connection
-db_connection.commit()
-db_connection.close()        
+    # Commit changes and close the connection
+    db_connection.commit()
+    db_connection.close()
+
+
+
+def create_localdb():
+    df = pd.read_csv(r'C:\Users\DELL\Desktop\sql_langchain\data\retail_2009.csv', encoding='cp1252')
+
+    # Connect to the SQLite database
+    conn = sqlite3.connect('mydatabase.db')
+
+    df.to_sql('retail_data', conn, if_exists='replace', index=False)
+    
+    conn.close()
+    
+# stock_data()
+create_localdb()
