@@ -10,7 +10,7 @@ import os
 
 load_dotenv()
 
-def sql_retrieve():
+def sql_retrieve(user_query):
 
     few_shots = {
         "List all orders": "SELECT * FROM orders;",
@@ -64,7 +64,8 @@ def sql_retrieve():
         agent_type=AgentType.OPENAI_FUNCTIONS,
         suffix=custom_suffix,
     )
-    agent.invoke("How many orders in United Kingdom?")
+    response = agent.invoke(user_query)
+    return response
 
 
-sql_retrieve()
+# sql_retrieve()
