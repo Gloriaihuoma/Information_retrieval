@@ -11,12 +11,14 @@ This project is designed to empower frontline employees by enabling them to retr
 - **Secure Access**: Ensures data security and access control, allowing only authorized personnel to view or retrieve customer information.
 
 ## Installation
+To install the necessary dependencies for the SQL Information Retrieval Dashboard, you can use the following command in your terminal:
 
-To set up the SQL Information Retrieval Dashboard, ensure that the following dependencies are installed:
-
-```bash
-pip install aiohttp aiosignal annotated-types anyio async-timeout attrs certifi charset-normalizer colorama dataclasses-json distro exceptiongroup faiss-cpu frozenlist greenlet h11 httpcore httpx idna jsonpatch jsonpointer langchain langchain-community langchain-core langchain-openai langsmith marshmallow multidict mypy-extensions numpy openai packaging pandas pydantic pydantic_core PyMySQL python-dateutil python-dotenv pytz PyYAML regex requests six sniffio SQLAlchemy tenacity tiktoken tqdm typing-inspect typing_extensions tzdata urllib3 yarl
+``` bash
+Copy code
+pip install -r requirements.txt
 ```
+Make sure that the requirements.txt file is in your current directory and contains all the necessary package names and versions required for the project. This will ensure a streamlined setup and help you avoid manually entering each package.
+
 
 ## Usage
 
